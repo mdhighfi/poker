@@ -1,7 +1,6 @@
 require_relative "card"
 
 class Deck
-
   VALUES = %w[2 3 4 5 6 7 8 9 10 J Q K A]
   SUITS = [:hearts, :clubs, :diamonds, :spades]
 
@@ -26,6 +25,11 @@ class Deck
 
   def give_card
     @stack.shift
+  end
+
+  def receive_card(card)
+    raise "REPEAT CARD" if @stack.include?(card)
+    @stack << card
   end
 
 end
